@@ -27,7 +27,7 @@ class Core extends Basic {
      * @throws \EInvoice\Exceptions\InvalidResponseException
      * Author: DQ
      */
-    public function issue($FPKJXX_FPTXX = [], $FPKJXX_XMXXS = [], $FPKJXX_DDXX = []) {
+    public function issue($FPKJXX_FPTXX = [], $FPKJXX_XMXXS = [], $FPKJXX_DDXX = [], $FPKJXX_BDCZL = []) {
         $this->config['interfaceCode'] = 'ECXML.FPKJ.BC.E_INV';
         $config                        = $this->config;
         $config['requestTime']         = date('Y-m-d H:i:s s');
@@ -49,7 +49,7 @@ class Core extends Basic {
             }
         }
 
-        $content = $xml->buildFpkjxx($FPKJXX_FPTXX, $FPKJXX_XMXXS, $FPKJXX_DDXX);
+        $content = $xml->buildFpkjxx($FPKJXX_FPTXX, $FPKJXX_XMXXS, $FPKJXX_DDXX, $FPKJXX_BDCZL);
 
         $encrypt = $this->_encrypt($content, $this->key);
 

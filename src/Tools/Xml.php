@@ -50,7 +50,8 @@ EOD;
      *
      * Author: DQ
      */
-    public function buildFpkjxx($FPKJXX_FPTXX = [], $FPKJXX_XMXXS = [], $FPKJXX_DDXX = []) {
+    public function buildFpkjxx($FPKJXX_FPTXX = [], $FPKJXX_XMXXS = [], $FPKJXX_DDXX = [],$FPKJXX_BDCZL = []) {
+
         $FPKJXX_FPTXX_STRING = "";
         foreach ($FPKJXX_FPTXX as $key => $val) {
             $FPKJXX_FPTXX_STRING .= $this->_keyToXml($key, $val);
@@ -74,7 +75,14 @@ EOD;
         }
         $FPKJXX_DDXX_STRING = sprintf('<FPKJXX_DDXX class="FPKJXX_DDXX">%s</FPKJXX_DDXX>', $FPKJXX_DDXX_STRING);
 
-        return sprintf('<REQUEST_FPKJXX class="REQUEST_FPKJXX">%s</REQUEST_FPKJXX>', $FPKJXX_FPTXX_STRING . $FPKJXX_XMXXS_STRING . $FPKJXX_DDXX_STRING);
+        $FPKJXX_BDCZL_STRING = "";
+        foreach ($FPKJXX_BDCZL as $key => $val) {
+            $FPKJXX_BDCZL_STRING .= $this->_keyToXml($key, $val);
+        }
+        $FPKJXX_BDCZL_STRING = sprintf('<FPKJXX_BDCZL class="FPKJXX_BDCZL">%s</FPKJXX_BDCZL>', $FPKJXX_BDCZL_STRING);
+
+
+        return sprintf('<REQUEST_FPKJXX class="REQUEST_FPKJXX">%s</REQUEST_FPKJXX>', $FPKJXX_FPTXX_STRING . $FPKJXX_XMXXS_STRING . $FPKJXX_DDXX_STRING . $FPKJXX_BDCZL_STRING);
     }
 
     /**

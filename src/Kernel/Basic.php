@@ -147,6 +147,9 @@ class Basic {
             $content = openssl_decrypt(base64_decode($xml['Data']['content']), 'DES-EDE3', $key);
         } else {
             $content = openssl_decrypt(zlib_decode(base64_decode($xml['Data']['content'])), 'DES-EDE3', $key);
+            if (empty($content)) {
+                $content = openssl_decrypt(zlib_decode(base64_decode($xml['Data']['content'])), 'DES-EDE3', $key, OPENSSL_RAW_DATA);
+            }
         }
         if ($content) {
             // 控制字符
