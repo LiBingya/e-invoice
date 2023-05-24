@@ -1,0 +1,37 @@
+{
+    "name": "bing/e-invoice",
+    "description": "shanghai public rental housing is sign contract online lib",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bing。",
+            "email": "169133603@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "ext-simplexml": "*",
+        "ext-openssl": "*",
+        "php-curl-class/php-curl-class": "^8.8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
+    "minimum-stability": "alpha",
+    "autoload": {
+        "psr-4": {
+            "EInvoice\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EInvoice\\tests\\": "tests/"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}
